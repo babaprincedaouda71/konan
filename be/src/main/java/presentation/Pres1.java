@@ -1,8 +1,8 @@
 package presentation;
 
-import dao.DaoImpl;
-import dao.DaoImpl2;
-import metier.MetierImpl;
+import repositories.DaoImpl;
+import repositories.DaoImpl2;
+import service.MetierImpl;
 
 public class Pres1 {
     public static void main(String[] args) {

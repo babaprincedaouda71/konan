@@ -1,4 +1,4 @@
-package dao;
+package repositories;
 
 public interface IDao {
     double getData();

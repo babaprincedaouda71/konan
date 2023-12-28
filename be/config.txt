@@ -1,2 +1,2 @@
-dao.DaoImpl2
-metier.MetierImpl
+repositories.DaoImpl2
+service.MetierImpl

@@ -1,6 +1,6 @@
 package presentation;
 
-import metier.IMetier;
+import service.IMetier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

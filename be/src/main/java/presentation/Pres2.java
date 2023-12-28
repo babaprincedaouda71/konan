@@ -1,11 +1,9 @@
 package presentation;
 
-import dao.IDao;
-import metier.IMetier;
+import repositories.IDao;
+import service.IMetier;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
