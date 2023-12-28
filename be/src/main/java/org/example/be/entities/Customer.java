@@ -11,10 +11,11 @@ import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 @Entity
-public class Perfume {
+public class Customer {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String description;
-    private double price;
+    private String firstName;
+    private String lastName;
+    private String addressMail;
+    private String phoneNumber;
 }
