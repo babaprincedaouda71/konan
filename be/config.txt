@@ -1,2 +1,0 @@
-repositories.DaoImpl2
-service.MetierImpl
