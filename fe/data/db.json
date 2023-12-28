@@ -1,0 +1,67 @@
+{
+  "perfumes": [
+    {
+      "id": 1,
+      "name": "One Million",
+      "description": "One Million de Paco Rabanne incarne le luxe et la séduction. Ce parfum masculin emblématique mélange des notes pétillantes d'agrumes avec des accents épicés et boisés pour créer un parfum captivant et audacieux. Son flacon doré en forme de lingot d'or symbolise le pouvoir et la confiance en soi. Idéal pour les soirées spéciales et les occasions où vous souhaitez laisser une impression inoubliable.",
+      "price": 50
+    },
+    {
+      "id": 2,
+      "name": "Invictus",
+      "description": "",
+      "price": 50
+    },
+    {
+      "id": 3,
+      "name": "Savage",
+      "description": "",
+      "price": 50
+    },
+    {
+      "id": 4,
+      "name": "Ultra Male",
+      "description": "",
+      "price": 50
+    }
+  ],
+  "cart": [
+    {
+      "id": 4,
+      "name": "Ultra Male",
+      "description": "",
+      "price": 50,
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "name": "One Million",
+      "description": "One Million de Paco Rabanne incarne le luxe et la séduction. Ce parfum masculin emblématique mélange des notes pétillantes d'agrumes avec des accents épicés et boisés pour créer un parfum captivant et audacieux. Son flacon doré en forme de lingot d'or symbolise le pouvoir et la confiance en soi. Idéal pour les soirées spéciales et les occasions où vous souhaitez laisser une impression inoubliable.",
+      "price": 50,
+      "quantity": 1
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "first_name": "Baba",
+      "last_name": "Prince",
+      "address_mail": "babaprince@gmail.com",
+      "phone_number": "+216693823094"
+    },
+    {
+      "first_name": "Latifa",
+      "last_name": "Aziz",
+      "address_mail": "latifa@fmail.com",
+      "phone_number": "+212696358565",
+      "id": 2
+    },
+    {
+      "first_name": "Samne",
+      "last_name": "Samne",
+      "address_mail": "samne@gmail.com",
+      "phone_number": "+212688588566",
+      "id": 3
+    }
+  ]
+}

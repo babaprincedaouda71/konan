@@ -1,0 +1,4 @@
+/* Styles CSS pour supprimer l'effet souligné des liens */
+a {
+  text-decoration: none;
+}

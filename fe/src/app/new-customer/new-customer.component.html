@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <h1 class="text-center">Enregistrement d'un Nouveau Consommateur</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="saveCustomer()">
+    <div class="mb-3">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control" formControlName="firstName">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Prénom</label>
+      <input type="text" class="form-control" formControlName="lastName">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Adresse E-mail</label>
+      <input type="text" class="form-control" formControlName="addressMail">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Numéro de Téléphone</label>
+      <input type="text" class="form-control" formControlName="phoneNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+  </form>
+</div>

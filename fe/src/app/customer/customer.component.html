@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h1 class="text-center">Liste des Consommateurs</h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Adresse mail</th>
+      <th>Numéros de Téléphone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.id}}</td>
+      <td>{{customer.lastName}}</td>
+      <td>{{customer.firstName}}</td>
+      <td>{{customer.addressMail}}</td>
+      <td>{{customer.phoneNumber}}</td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="deleteCustomer(customer)">
+          <i class="bi bi-trash2"></i>
+        </button>
+      </td>
+    </tr>
+    <!-- Ajoutez d'autres lignes pour chaque consommateur -->
+    </tbody>
+  </table>
+</div>

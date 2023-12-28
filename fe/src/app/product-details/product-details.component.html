@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="assets/images/perfume.jpg" alt="{{ product.name }}" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product.name }}</h2>
+      <p class="lead">Description : {{ product.description }}</p>
+      <p>Prix : {{ product.price | currency:'MAD':'symbol':'1.2-2' }}</p>
+      <!-- Ajoutez d'autres détails du parfum ici -->
+      <a (click)="addToCart(product)" class="btn btn-primary">Acheter maintenant</a>
+      <a routerLink="/catalog" class="btn btn-secondary">Continuer mes achats</a>
+    </div>
+  </div>
+</div>
