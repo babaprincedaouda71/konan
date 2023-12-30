@@ -32,4 +32,9 @@ public class PerfumeServiceImpl01 implements PerfumeService {
     public List<Perfume> searchPerfume(String mc) {
         return perfumeRepository.searchAllByNameContains(mc);
     }
+
+    @Override
+    public Perfume findById(Long id) {
+        return perfumeRepository.findById(id).get();
+    }
 }

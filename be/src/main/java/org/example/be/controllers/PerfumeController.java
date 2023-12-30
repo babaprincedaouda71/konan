@@ -30,8 +30,12 @@ public class PerfumeController {
         perfumeService.removePerfume(perfume);
     }
 
-    @GetMapping("/perfumes/{mc}")
     public List<Perfume> searchPerfume(@PathVariable String mc){
         return perfumeService.searchPerfume(mc);
+    }
+
+    @GetMapping("/perfumes/{id}")
+    public Perfume findById(@PathVariable Long id){
+        return perfumeService.findById(id);
     }
 }

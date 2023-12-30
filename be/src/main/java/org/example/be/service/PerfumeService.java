@@ -13,4 +13,6 @@ public interface PerfumeService {
     public void removePerfume(Perfume perfume);
 
     public List<Perfume> searchPerfume(String mc);
+
+    public Perfume findById(Long id);
 }
