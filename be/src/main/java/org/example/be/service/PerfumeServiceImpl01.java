@@ -15,13 +15,21 @@ public class PerfumeServiceImpl01 implements PerfumeService {
     }
     @Override
     public List<Perfume> getPerfumes() {
-        List<Perfume> perfumes = perfumeRepository.findAll();
-        return perfumes;
+        return perfumeRepository.findAll();
     }
 
     @Override
     public Perfume addPerfume(Perfume perfume) {
-        Perfume savedPerfume = perfumeRepository.save(perfume);
-        return savedPerfume;
+        return perfumeRepository.save(perfume);
+    }
+
+    @Override
+    public void removePerfume(Perfume perfume) {
+        perfumeRepository.delete(perfume);
+    }
+
+    @Override
+    public List<Perfume> searchPerfume(String mc) {
+        return perfumeRepository.searchAllByNameContains(mc);
     }
 }
