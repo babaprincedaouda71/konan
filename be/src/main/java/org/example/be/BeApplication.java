@@ -1,6 +1,7 @@
 package org.example.be;
 
 import org.example.be.dto.*;
+import org.example.be.entities.Customer;
 import org.example.be.service.CustomerService;
 import org.example.be.service.OrderService;
 import org.example.be.service.PerfumeService;
@@ -71,6 +72,13 @@ public class BeApplication {
 			System.out.println("////////////////////////////////////////////////");
 
 			System.out.println("******************** ORDERS ******************");
+//			Customer customer = new Customer();
+//			customer.setFirstName("Salma");
+//			customer.setLastName("Sasha");
+//			customer.setAddressMail("salmasasha@gmail.com");
+//			customer.setPhoneNumber("+212693823094");
+			OrderRequestDTO orderRequestDTO = OrderRequestDTO.builder().build();
+			orderService.createOrder(orderRequestDTO);
 		};
 	}
 
