@@ -34,7 +34,7 @@ public class BeApplication {
 				perfumeService.addPerfume(perfumeRequestDTO);
 			}
 
-			List<Perfume> perfumes = perfumeService.getPerfumes();
+			List<PerfumeResponseDTO> perfumes = perfumeService.getPerfumes();
 			perfumes.forEach(System.out::println);
 		};
 	}

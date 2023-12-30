@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface PerfumeService {
-    public List<Perfume> getPerfumes();
+    public List<PerfumeResponseDTO> getPerfumes();
 
     public PerfumeResponseDTO addPerfume(PerfumeRequestDTO perfumeRequestDTO);
 

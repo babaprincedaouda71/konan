@@ -16,8 +16,8 @@ public class PerfumeController {
     private PerfumeService perfumeService;
 
     @GetMapping("/perfumes")
-    public List<Perfume> getPerfumes(){
-        List<Perfume> perfumes = perfumeService.getPerfumes();
+    public List<PerfumeResponseDTO> getPerfumes(){
+        List<PerfumeResponseDTO> perfumes = perfumeService.getPerfumes();
         return perfumes;
     }
 

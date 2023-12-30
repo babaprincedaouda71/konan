@@ -9,6 +9,7 @@ import org.example.be.mappers.PerfumeMapper;
 import org.example.be.repositories.PerfumeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,8 +19,14 @@ public class PerfumeServiceImpl01 implements PerfumeService {
     private PerfumeMapper perfumeMapper;
 
     @Override
-    public List<Perfume> getPerfumes() {
-        return perfumeRepository.findAll();
+    public List<PerfumeResponseDTO> getPerfumes() {
+        List<Perfume> perfumes = perfumeRepository.findAll();
+        List<PerfumeResponseDTO> perfumeResponseDTOList = new ArrayList<>();
+        perfumes.forEach(perfume -> {
+            PerfumeResponseDTO perfumeResponseDTO = perfumeMapper.fromPerfume(perfume);
+            perfumeResponseDTOList.add(perfumeResponseDTO);
+        });
+        return perfumeResponseDTOList;
     }
 
     @Override
