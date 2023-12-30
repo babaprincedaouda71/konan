@@ -24,8 +24,8 @@ public class PerfumeServiceImpl01 implements PerfumeService {
     }
 
     @Override
-    public void removePerfume(Perfume perfume) {
-        perfumeRepository.delete(perfume);
+    public void removePerfume(Long id) {
+        perfumeRepository.delete(perfumeRepository.findById(id).get());
     }
 
     @Override
@@ -36,5 +36,14 @@ public class PerfumeServiceImpl01 implements PerfumeService {
     @Override
     public Perfume findById(Long id) {
         return perfumeRepository.findById(id).get();
+    }
+
+    @Override
+    public Perfume updatePerfume(Long id, Perfume perfume) {
+        Perfume updatedPerfume = perfumeRepository.findById(id).get();
+        updatedPerfume.setName(perfume.getName());
+        updatedPerfume.setDescription(perfume.getDescription());
+        updatedPerfume.setPrice(perfume.getPrice());
+        return perfumeRepository.save(updatedPerfume);
     }
 }

@@ -10,9 +10,11 @@ public interface PerfumeService {
 
     public Perfume addPerfume(Perfume perfume);
 
-    public void removePerfume(Perfume perfume);
+    public void removePerfume(Long id);
 
     public List<Perfume> searchPerfume(String mc);
 
     public Perfume findById(Long id);
+
+    public Perfume updatePerfume(Long id, Perfume perfume);
 }

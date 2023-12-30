@@ -20,14 +20,14 @@ public class PerfumeController {
         return perfumes;
     }
 
-    @PostMapping("/addPerfume")
+    @PostMapping("/perfumes")
     public Perfume addPerfume(@RequestBody Perfume perfume){
         return perfumeService.addPerfume(perfume);
     }
 
-    @DeleteMapping("/removePerfume")
-    public void removePerfume(@RequestBody Perfume perfume){
-        perfumeService.removePerfume(perfume);
+    @DeleteMapping("/perfumes/{id}")
+    public void removePerfume(@PathVariable Long id){
+        perfumeService.removePerfume(id);
     }
 
     public List<Perfume> searchPerfume(@PathVariable String mc){
@@ -37,5 +37,10 @@ public class PerfumeController {
     @GetMapping("/perfumes/{id}")
     public Perfume findById(@PathVariable Long id){
         return perfumeService.findById(id);
+    }
+
+    @PutMapping("/perfumes/{id}")
+    public Perfume updatePerfume(@PathVariable Long id, @RequestBody Perfume perfume){
+        return perfumeService.updatePerfume(id, perfume);
     }
 }
