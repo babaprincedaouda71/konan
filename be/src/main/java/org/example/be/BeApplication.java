@@ -1,10 +1,8 @@
 package org.example.be;
 
-import org.example.be.dto.CustomerRequestDTO;
-import org.example.be.dto.CustomerResponseDTO;
-import org.example.be.dto.PerfumeRequestDTO;
-import org.example.be.dto.PerfumeResponseDTO;
+import org.example.be.dto.*;
 import org.example.be.service.CustomerService;
+import org.example.be.service.OrderService;
 import org.example.be.service.PerfumeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,10 +20,13 @@ public class BeApplication {
 	}
 
 	@Bean
-	CommandLineRunner start(PerfumeService perfumeService, CustomerService customerService){
+	CommandLineRunner start(
+			PerfumeService perfumeService,
+			CustomerService customerService,
+			OrderService orderService){
 		return args -> {
 			System.out.println("******************** PERFUMES ******************");
-			for (int i = 0; i < 150; i++) {
+			for (int i = 0; i < 10; i++) {
 				PerfumeRequestDTO perfumeRequestDTO = PerfumeRequestDTO.builder()
 						.name("ABC" + i)
 						.description("Eélégance en toute circonstance")
@@ -64,6 +65,12 @@ public class BeApplication {
 			System.out.println("-------------------- CUSTOMERS LIST --------------------");
 			List<CustomerResponseDTO> customers = customerService.getCustomers();
 			customers.forEach(System.out::println);
+
+			System.out.println("////////////////////////////////////////////////");
+			System.out.println("////////////////////////////////////////////////");
+			System.out.println("////////////////////////////////////////////////");
+
+			System.out.println("******************** ORDERS ******************");
 		};
 	}
 

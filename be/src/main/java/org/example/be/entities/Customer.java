@@ -1,13 +1,12 @@
 package org.example.be.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 @Entity
@@ -18,4 +17,6 @@ public class Customer {
     private String lastName;
     private String addressMail;
     private String phoneNumber;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private List<Order> orders;
 }
