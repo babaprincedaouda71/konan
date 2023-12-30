@@ -1,7 +1,6 @@
 package org.example.be.service;
 
 import lombok.AllArgsConstructor;
-import org.example.be.dto.PerfumeDTO;
 import org.example.be.dto.PerfumeRequestDTO;
 import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;

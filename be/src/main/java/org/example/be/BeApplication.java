@@ -1,10 +1,7 @@
 package org.example.be;
 
-import org.example.be.dto.PerfumeDTO;
 import org.example.be.dto.PerfumeRequestDTO;
 import org.example.be.dto.PerfumeResponseDTO;
-import org.example.be.entities.Perfume;
-import org.example.be.mappers.PerfumeMapper;
 import org.example.be.service.PerfumeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

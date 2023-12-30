@@ -1,10 +1,8 @@
 package org.example.be.service;
 
-import org.example.be.dto.PerfumeDTO;
 import org.example.be.dto.PerfumeRequestDTO;
 import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
