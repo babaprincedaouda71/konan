@@ -1,6 +1,10 @@
 package org.example.be;
 
+import org.example.be.dto.PerfumeDTO;
+import org.example.be.dto.PerfumeRequestDTO;
+import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
+import org.example.be.mappers.PerfumeMapper;
 import org.example.be.service.PerfumeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,13 +25,13 @@ public class BeApplication {
 		return args -> {
 //			perfumeService.addPerfume(new Perfume(null, "One Million", "Sensadffjfjerkjdfvdfkjvnfdj", 20));
 			for (int i = 0; i < 150; i++) {
-				Perfume perfume = Perfume.builder()
+				PerfumeRequestDTO perfumeRequestDTO = PerfumeRequestDTO.builder()
 						.name("ABC" + i)
 						.description("Eélégance en toute circonstance")
 						.price(50)
 						.build();
 
-				perfumeService.addPerfume(perfume);
+				perfumeService.addPerfume(perfumeRequestDTO);
 			}
 
 			List<Perfume> perfumes = perfumeService.getPerfumes();

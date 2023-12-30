@@ -1,26 +1,32 @@
 package org.example.be.service;
 
+import lombok.AllArgsConstructor;
+import org.example.be.dto.PerfumeDTO;
+import org.example.be.dto.PerfumeRequestDTO;
+import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
+import org.example.be.mappers.PerfumeMapper;
 import org.example.be.repositories.PerfumeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class PerfumeServiceImpl01 implements PerfumeService {
-    PerfumeRepository perfumeRepository;
+    private PerfumeRepository perfumeRepository;
+    private PerfumeMapper perfumeMapper;
 
-    public PerfumeServiceImpl01(PerfumeRepository perfumeRepository) {
-        this.perfumeRepository = perfumeRepository;
-    }
     @Override
     public List<Perfume> getPerfumes() {
         return perfumeRepository.findAll();
     }
 
     @Override
-    public Perfume addPerfume(Perfume perfume) {
-        return perfumeRepository.save(perfume);
+    public PerfumeResponseDTO addPerfume(PerfumeRequestDTO perfumeRequestDTO) {
+        Perfume perfume = perfumeMapper.fromPerfumeDTO(perfumeRequestDTO);
+        Perfume savedPerfume = perfumeRepository.save(perfume);
+        return perfumeMapper.fromPerfume(savedPerfume);
     }
 
     @Override

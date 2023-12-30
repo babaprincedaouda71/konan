@@ -1,5 +1,9 @@
 package org.example.be.controllers;
 
+import lombok.AllArgsConstructor;
+import org.example.be.dto.PerfumeDTO;
+import org.example.be.dto.PerfumeRequestDTO;
+import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
 import org.example.be.service.PerfumeService;
 import org.springframework.web.bind.annotation.*;
@@ -7,12 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class PerfumeController {
-    PerfumeService perfumeService;
-
-    public PerfumeController(PerfumeService perfumeService) {
-        this.perfumeService = perfumeService;
-    }
+    private PerfumeService perfumeService;
 
     @GetMapping("/perfumes")
     public List<Perfume> getPerfumes(){
@@ -21,8 +22,8 @@ public class PerfumeController {
     }
 
     @PostMapping("/perfumes")
-    public Perfume addPerfume(@RequestBody Perfume perfume){
-        return perfumeService.addPerfume(perfume);
+    public PerfumeResponseDTO addPerfume(@RequestBody PerfumeRequestDTO perfumeRequestDTO){
+        return perfumeService.addPerfume(perfumeRequestDTO);
     }
 
     @DeleteMapping("/perfumes/{id}")
