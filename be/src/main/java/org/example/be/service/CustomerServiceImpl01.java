@@ -1,5 +1,6 @@
 package org.example.be.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.be.dto.CustomerRequestDTO;
 import org.example.be.dto.CustomerResponseDTO;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 @AllArgsConstructor
+@Transactional
 public class CustomerServiceImpl01 implements CustomerService {
     private CustomerRepository customerRepository;
     private CustomerMapper customerMapper;

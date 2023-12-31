@@ -1,5 +1,6 @@
 package org.example.be.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.be.dto.PerfumeRequestDTO;
 import org.example.be.dto.PerfumeResponseDTO;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class PerfumeServiceImpl01 implements PerfumeService {
     private PerfumeRepository perfumeRepository;
     private PerfumeMapper perfumeMapper;

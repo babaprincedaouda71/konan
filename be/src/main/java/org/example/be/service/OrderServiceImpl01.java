@@ -1,5 +1,6 @@
 package org.example.be.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.be.dto.OrderRequestDTO;
 import org.example.be.dto.OrderResponseDTO;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class OrderServiceImpl01 implements OrderService {
     private OrderRepository orderRepository;
     private OrderMapper orderMapper;
