@@ -2,6 +2,7 @@ package org.example.be;
 
 import org.example.be.dto.*;
 import org.example.be.entities.Customer;
+import org.example.be.mappers.CustomerMapper;
 import org.example.be.service.CustomerService;
 import org.example.be.service.OrderService;
 import org.example.be.service.PerfumeService;
@@ -24,7 +25,8 @@ public class BeApplication {
 	CommandLineRunner start(
 			PerfumeService perfumeService,
 			CustomerService customerService,
-			OrderService orderService){
+			OrderService orderService,
+			CustomerMapper customerMapper){
 		return args -> {
 			System.out.println("******************** PERFUMES ******************");
 			for (int i = 0; i < 10; i++) {
@@ -72,13 +74,22 @@ public class BeApplication {
 			System.out.println("////////////////////////////////////////////////");
 
 			System.out.println("******************** ORDERS ******************");
-//			Customer customer = new Customer();
-//			customer.setFirstName("Salma");
-//			customer.setLastName("Sasha");
-//			customer.setAddressMail("salmasasha@gmail.com");
-//			customer.setPhoneNumber("+212693823094");
-			OrderRequestDTO orderRequestDTO = OrderRequestDTO.builder().build();
+
+			Customer customer = customerService.findById(2L);
+			OrderRequestDTO orderRequestDTO = OrderRequestDTO.builder()
+					.customer(customer)
+					.build();
 			orderService.createOrder(orderRequestDTO);
+
+			System.out.println("******************** ORDERS LIST ******************");
+			List<OrderResponseDTO> orders = orderService.getOrders();
+			System.out.printf("%-10s%-15s%-20s%n", "Order id", "Customer id", "Customer FirstName");
+			orders.forEach(orderResponseDTO -> {
+				System.out.printf("%-10s%-15s%-20s%n",
+						orderResponseDTO.getId(),
+						orderResponseDTO.getCustomer().getId(),
+						orderResponseDTO.getCustomer().getFirstName());
+			});
 		};
 	}
 

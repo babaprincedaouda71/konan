@@ -17,6 +17,11 @@ public class Customer {
     private String lastName;
     private String addressMail;
     private String phoneNumber;
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Order> orders;
+
+//    @Override
+//    public String toString() {
+//        return "Customer{id=" + id + "}";
+//    }
 }

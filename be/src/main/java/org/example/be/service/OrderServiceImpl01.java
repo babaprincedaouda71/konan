@@ -9,6 +9,9 @@ import org.example.be.mappers.OrderMapper;
 import org.example.be.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class OrderServiceImpl01 implements OrderService {
@@ -19,5 +22,16 @@ public class OrderServiceImpl01 implements OrderService {
         Order order = orderMapper.fromOrderDTO(orderRequestDTO);
         orderRepository.save(order);
         return orderMapper.fromOrder(order);
+    }
+
+    @Override
+    public List<OrderResponseDTO> getOrders() {
+        List<Order> orderList = orderRepository.findAll();
+        List<OrderResponseDTO> orderResponseDTOList = new ArrayList<>();
+        orderList.forEach(order -> {
+            OrderResponseDTO orderResponseDTO = orderMapper.fromOrder(order);
+            orderResponseDTOList.add(orderResponseDTO);
+        });
+        return orderResponseDTOList;
     }
 }

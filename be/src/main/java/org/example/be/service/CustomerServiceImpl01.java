@@ -40,9 +40,14 @@ public class CustomerServiceImpl01 implements CustomerService {
     }
 
     @Override
-    public CustomerResponseDTO findById(Long id) {
+    public CustomerResponseDTO findByIdDTO(Long id) {
         Customer customer = customerRepository.findById(id).get();
         return customerMapper.fromCustomer(customer);
+    }
+
+    @Override
+    public Customer findById(Long id) {
+        return customerRepository.findById(id).get();
     }
 
     @Override

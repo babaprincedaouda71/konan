@@ -13,4 +13,9 @@ public class Order {
     @ManyToOne
     //@JoinColumn(name = "id_customer")
     private Customer customer;
+
+//    @Override
+//    public String toString() {
+//        return "Order{id=" + id + ", customer=" + (customer != null ? customer.getFirstName() : null) + "}";
+//    }
 }

@@ -16,7 +16,8 @@ public interface CustomerService {
 
     public void removeCustomer(Long id);
 
-    public CustomerResponseDTO findById(Long id);
+    public CustomerResponseDTO findByIdDTO(Long id);
+    public Customer findById(Long id);
 
     public CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO customerRequestDTO);
 }
