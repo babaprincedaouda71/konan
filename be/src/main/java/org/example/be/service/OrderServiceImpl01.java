@@ -34,4 +34,9 @@ public class OrderServiceImpl01 implements OrderService {
         });
         return orderResponseDTOList;
     }
+
+    @Override
+    public OrderResponseDTO setCustomer(Customer customer) {
+        return null;
+    }
 }

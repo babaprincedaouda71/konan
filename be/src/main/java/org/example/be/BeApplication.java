@@ -80,6 +80,10 @@ public class BeApplication {
 					.customer(customer)
 					.build();
 			orderService.createOrder(orderRequestDTO);
+			OrderRequestDTO orderRequestDTO1 = OrderRequestDTO.builder()
+					.customer(customer)
+					.build();
+			orderService.createOrder(orderRequestDTO1);
 
 			System.out.println("******************** ORDERS LIST ******************");
 			List<OrderResponseDTO> orders = orderService.getOrders();

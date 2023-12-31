@@ -9,4 +9,6 @@ import java.util.List;
 public interface OrderService {
     public OrderResponseDTO createOrder(OrderRequestDTO orderRequestDTO);
     public List<OrderResponseDTO> getOrders();
+
+    public OrderResponseDTO setCustomer(Customer customer);
 }
