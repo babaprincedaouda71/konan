@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
@@ -16,6 +17,6 @@ public class Perfume {
     private String name;
     private String description;
     private double price;
-    //@ManyToMany
-    //private List<Order> orders;
+    @ManyToMany(mappedBy = "perfumes", fetch = FetchType.EAGER)
+    private List<Order> orders = new ArrayList<>();
 }

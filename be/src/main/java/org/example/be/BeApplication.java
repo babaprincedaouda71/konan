@@ -87,6 +87,9 @@ public class BeApplication {
 
 			System.out.println("******************** ORDERS LIST ******************");
 			List<OrderResponseDTO> orders = orderService.getOrders();
+			orderService.addPerfumeToOrder(1L, 1L);
+			orderService.addPerfumeToOrder(3L, 1L);
+			orderService.addPerfumeToOrder(5L, 1L);
 			System.out.printf("%-10s%-15s%-20s%n", "Order id", "Customer id", "Customer FirstName");
 			orders.forEach(orderResponseDTO -> {
 				System.out.printf("%-10s%-15s%-20s%n",

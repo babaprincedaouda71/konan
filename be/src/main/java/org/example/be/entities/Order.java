@@ -7,12 +7,12 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "Orders")
+@Entity @Table(name = "Orders")
 @Data @NoArgsConstructor
-@JsonIgnoreProperties("customer")
+//@JsonIgnoreProperties("customer")
 public class Order {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,8 +20,8 @@ public class Order {
     //@JoinColumn(name = "id_customer")
     //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Customer customer;
-    //@ManyToMany
-    //private List<Perfume> perfumes;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfume> perfumes = new ArrayList<>();
 
 //    @Override
 //    public String toString() {
