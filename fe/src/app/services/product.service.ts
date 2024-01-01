@@ -12,14 +12,14 @@ export class ProductService {
   constructor(private http : HttpClient) { }
 
   public getProducts() : Observable<Array<Product>>{
-    return this.http.get<Array<Product>>("http://localhost:8085/catalog")
+    return this.http.get<Array<Product>>("http://localhost:8082/perfumes")
   }
   public getProductsFromCart() : Observable<Array<Cart>>{
     return this.http.get<Array<Cart>>("http://localhost:3000/cart")
   }
 
   public getProduct(productId : number) : Observable<Product>{
-    return this.http.get<Product>(`http://localhost:3000/perfumes/${productId}`)
+    return this.http.get<Product>(`http://localhost:8082/perfumes/${productId}`)
   }
 
   public addToCart(product : Product) : Observable<any>{

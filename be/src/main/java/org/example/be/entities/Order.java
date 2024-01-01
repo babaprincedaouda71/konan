@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 public class Order {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @JsonBackReference
     @ManyToOne
     //@JoinColumn(name = "id_customer")
     private Customer customer;

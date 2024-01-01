@@ -19,7 +19,6 @@ public class Customer {
     private String lastName;
     private String addressMail;
     private String phoneNumber;
-//    @JsonManagedReference
     @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Order> orders;

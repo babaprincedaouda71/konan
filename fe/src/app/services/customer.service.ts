@@ -11,13 +11,13 @@ export class CustomerService {
   constructor(private http : HttpClient) { }
 
   public getCustomers() : Observable<Array<Customer>>{
-    return this.http.get<Array<Customer>>("http://localhost:8085/customers")
+    return this.http.get<Array<Customer>>("http://localhost:8082/customers")
   }
 
   public saveCustomer(customer : Customer) : Observable<Customer>{
-    return this.http.post<Customer>("http://localhost:8085/customers", customer)
+    return this.http.post<Customer>("http://localhost:8025/customers", customer)
   }
   public deleteCustomer(customer : Customer) : Observable<any>{
-    return this.http.delete(`http://localhost:3000/customers/${customer.id}`)
+    return this.http.delete(`http://localhost:8082/customers/${customer.id}`)
   }
 }
