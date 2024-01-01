@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "commands")
 @Data @NoArgsConstructor
@@ -16,6 +18,8 @@ public class Order {
     @ManyToOne
     //@JoinColumn(name = "id_customer")
     private Customer customer;
+    //@ManyToMany
+    //private List<Perfume> perfumes;
 
 //    @Override
 //    public String toString() {
