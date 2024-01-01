@@ -8,8 +8,9 @@ import org.example.be.entities.Order;
 import java.util.List;
 
 public interface OrderService {
-    public OrderResponseDTO createOrder(OrderRequestDTO orderRequestDTO);
-    public List<OrderResponseDTO> getOrders();
+    public Order createOrder(Order order);
+    public List<Order> getOrders();
     public Order findById(Long id);
     public void addPerfumeToOrder(Long perfumeId, Long orderId);
+    public void addCustomerToOrder(Long customerId, Long orderId);
 }

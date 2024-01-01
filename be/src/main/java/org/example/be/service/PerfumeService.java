@@ -1,15 +1,12 @@
 package org.example.be.service;
-
-import org.example.be.dto.PerfumeRequestDTO;
-import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
 
 import java.util.List;
 
 public interface PerfumeService {
-    public List<PerfumeResponseDTO> getPerfumes();
+    public List<Perfume> getPerfumes();
 
-    public PerfumeResponseDTO addPerfume(PerfumeRequestDTO perfumeRequestDTO);
+    public Perfume addPerfume(Perfume perfume);
 
     public void removePerfume(Long id);
 

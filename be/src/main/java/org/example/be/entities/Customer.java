@@ -1,8 +1,5 @@
 package org.example.be.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,12 +17,7 @@ public class Customer {
     private String lastName;
     private String addressMail;
     private String phoneNumber;
-    @JsonIgnore
+
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Order> orders;
-
-//    @Override
-//    public String toString() {
-//        return "Customer{id=" + id + "}";
-//    }
 }

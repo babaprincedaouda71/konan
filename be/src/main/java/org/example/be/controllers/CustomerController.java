@@ -19,14 +19,13 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/customers")
-    public List<CustomerResponseDTO> getCustomers(){
-        List<CustomerResponseDTO> customers = customerService.getCustomers();
-        return customers;
+    public List<Customer> getCustomers(){
+        return customerService.getCustomers();
     }
 
     @PostMapping("/customers")
-    public CustomerResponseDTO addCustomer(@RequestBody CustomerRequestDTO customerRequestDTO){
-        return customerService.addCustomer(customerRequestDTO);
+    public Customer addCustomer(@RequestBody Customer customer){
+        return customerService.addCustomer(customer);
     }
 
     @DeleteMapping("/customers/{id}")
@@ -35,12 +34,12 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/{id}")
-    public CustomerResponseDTO findByIdDTO(@PathVariable Long id){
-        return customerService.findByIdDTO(id);
+    public Customer findById(@PathVariable Long id){
+        return customerService.findById(id);
     }
 
     @PutMapping("/customers/{id}")
-    public CustomerResponseDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerRequestDTO customerRequestDTO){
-        return customerService.updateCustomer(id, customerRequestDTO);
+    public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer){
+        return customerService.updateCustomer(id, customer);
     }
 }

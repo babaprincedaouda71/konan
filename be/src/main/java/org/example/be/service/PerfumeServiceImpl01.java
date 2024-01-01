@@ -2,10 +2,7 @@ package org.example.be.service;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.example.be.dto.PerfumeRequestDTO;
-import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
-import org.example.be.mappers.PerfumeMapper;
 import org.example.be.repositories.PerfumeRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,24 +14,15 @@ import java.util.List;
 @Transactional
 public class PerfumeServiceImpl01 implements PerfumeService {
     private PerfumeRepository perfumeRepository;
-    private PerfumeMapper perfumeMapper;
 
     @Override
-    public List<PerfumeResponseDTO> getPerfumes() {
-        List<Perfume> perfumes = perfumeRepository.findAll();
-        List<PerfumeResponseDTO> perfumeResponseDTOList = new ArrayList<>();
-        perfumes.forEach(perfume -> {
-            PerfumeResponseDTO perfumeResponseDTO = perfumeMapper.fromPerfume(perfume);
-            perfumeResponseDTOList.add(perfumeResponseDTO);
-        });
-        return perfumeResponseDTOList;
+    public List<Perfume> getPerfumes() {
+        return perfumeRepository.findAll();
     }
 
     @Override
-    public PerfumeResponseDTO addPerfume(PerfumeRequestDTO perfumeRequestDTO) {
-        Perfume perfume = perfumeMapper.fromPerfumeDTO(perfumeRequestDTO);
-        Perfume savedPerfume = perfumeRepository.save(perfume);
-        return perfumeMapper.fromPerfume(savedPerfume);
+    public Perfume addPerfume(Perfume perfume) {
+        return perfumeRepository.save(perfume);
     }
 
     @Override

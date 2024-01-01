@@ -1,8 +1,6 @@
 package org.example.be.controllers;
 
 import lombok.AllArgsConstructor;
-import org.example.be.dto.PerfumeRequestDTO;
-import org.example.be.dto.PerfumeResponseDTO;
 import org.example.be.entities.Perfume;
 import org.example.be.service.PerfumeService;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +13,13 @@ public class PerfumeController {
     private PerfumeService perfumeService;
 
     @GetMapping("/perfumes")
-    public List<PerfumeResponseDTO> getPerfumes(){
-        List<PerfumeResponseDTO> perfumes = perfumeService.getPerfumes();
-        return perfumes;
+    public List<Perfume> getPerfumes(){
+        return perfumeService.getPerfumes();
     }
 
     @PostMapping("/perfumes")
-    public PerfumeResponseDTO addPerfume(@RequestBody PerfumeRequestDTO perfumeRequestDTO){
-        return perfumeService.addPerfume(perfumeRequestDTO);
+    public Perfume addPerfume(@RequestBody Perfume perfume){
+        return perfumeService.addPerfume(perfume);
     }
 
     @DeleteMapping("/perfumes/{id}")
@@ -30,6 +27,7 @@ public class PerfumeController {
         perfumeService.removePerfume(id);
     }
 
+    @GetMapping("/perfumes/{mc}")
     public List<Perfume> searchPerfume(@PathVariable String mc){
         return perfumeService.searchPerfume(mc);
     }

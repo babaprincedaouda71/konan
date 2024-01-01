@@ -10,14 +10,9 @@ import org.example.be.entities.Perfume;
 import java.util.List;
 
 public interface CustomerService {
-    public List<CustomerResponseDTO> getCustomers();
-
-    public CustomerResponseDTO addCustomer(CustomerRequestDTO customerRequestDTO);
-
     public void removeCustomer(Long id);
-
-    public CustomerResponseDTO findByIdDTO(Long id);
     public Customer findById(Long id);
-
-    public CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO customerRequestDTO);
+    public List<Customer> getCustomers();
+    public Customer addCustomer(Customer customer);
+    public Customer updateCustomer(Long id, Customer customer);
 }

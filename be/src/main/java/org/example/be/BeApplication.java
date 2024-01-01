@@ -2,6 +2,11 @@ package org.example.be;
 
 import org.example.be.dto.*;
 import org.example.be.entities.Customer;
+<<<<<<< HEAD
+=======
+import org.example.be.entities.Order;
+import org.example.be.entities.Perfume;
+>>>>>>> 2c89513 (konan-be-01 01/01/2023)
 import org.example.be.mappers.CustomerMapper;
 import org.example.be.service.CustomerService;
 import org.example.be.service.OrderService;
@@ -25,78 +30,55 @@ public class BeApplication {
 	CommandLineRunner start(
 			PerfumeService perfumeService,
 			CustomerService customerService,
-			OrderService orderService,
-			CustomerMapper customerMapper){
+			OrderService orderService){
 		return args -> {
-			System.out.println("******************** PERFUMES ******************");
-			for (int i = 0; i < 10; i++) {
-				PerfumeRequestDTO perfumeRequestDTO = PerfumeRequestDTO.builder()
-						.name("ABC" + i)
-						.description("Eélégance en toute circonstance")
-						.price(50)
-						.build();
 
-				perfumeService.addPerfume(perfumeRequestDTO);
-			}
-
-			System.out.println("-------------------- PERFUMES LIST --------------------");
-			List<PerfumeResponseDTO> perfumes = perfumeService.getPerfumes();
-			perfumes.forEach(System.out::println);
-
-			System.out.println("////////////////////////////////////////////////");
-			System.out.println("////////////////////////////////////////////////");
-			System.out.println("////////////////////////////////////////////////");
+			Perfume perfume = Perfume.builder()
+					.name("One Million")
+					.description("Perfect")
+					.price(50)
+					.build();
+			Perfume perfume1 = Perfume.builder()
+					.name("Legend")
+					.description("Perfect")
+					.price(50)
+					.build();
+			Perfume perfume2 = Perfume.builder()
+					.name("Invictus")
+					.description("Perfect")
+					.price(50)
+					.build();
+			perfumeService.addPerfume(perfume);
+			perfumeService.addPerfume(perfume1);
+			perfumeService.addPerfume(perfume2);
 
 			System.out.println("******************** CUSTOMERS ******************");
-			CustomerRequestDTO customerRequestDTO = CustomerRequestDTO.builder()
+			Customer customer = Customer.builder()
 					.firstName("Baba")
-					.lastName("Prince")
-					.addressMail("iambabaprince@gmail.com")
-					.phoneNumber("+212693823094")
 					.build();
-
-			CustomerRequestDTO customerRequestDTO1 = CustomerRequestDTO.builder()
+			Customer customer1 = Customer.builder()
+					.firstName("Prince")
+					.build();
+			Customer customer2 = Customer.builder()
 					.firstName("Boris")
-					.lastName("Samne")
-					.addressMail("borissamne@gmail.com")
-					.phoneNumber("+212693823094")
 					.build();
-
-			customerService.addCustomer(customerRequestDTO);
-			customerService.addCustomer(customerRequestDTO1);
-
-			System.out.println("-------------------- CUSTOMERS LIST --------------------");
-			List<CustomerResponseDTO> customers = customerService.getCustomers();
-			customers.forEach(System.out::println);
-
-			System.out.println("////////////////////////////////////////////////");
-			System.out.println("////////////////////////////////////////////////");
-			System.out.println("////////////////////////////////////////////////");
+			customerService.addCustomer(customer);
+			customerService.addCustomer(customer1);
+			customerService.addCustomer(customer2);
 
 			System.out.println("******************** ORDERS ******************");
+			Order order = new Order();
+			Order order1 = new Order();
+			Order order2 = new Order();
+			orderService.createOrder(order);
+			orderService.createOrder(order1);
+			orderService.createOrder(order2);
 
-			Customer customer = customerService.findById(2L);
-			OrderRequestDTO orderRequestDTO = OrderRequestDTO.builder()
-					.customer(customer)
-					.build();
-			orderService.createOrder(orderRequestDTO);
-			OrderRequestDTO orderRequestDTO1 = OrderRequestDTO.builder()
-					.customer(customer)
-					.build();
-			orderService.createOrder(orderRequestDTO1);
+			System.out.println("******************** ADD PERFUME TO ORDER ******************");
+			orderService.addPerfumeToOrder(perfume.getId(), order.getId());
 
-			System.out.println("******************** ORDERS LIST ******************");
-			List<OrderResponseDTO> orders = orderService.getOrders();
-			orderService.addPerfumeToOrder(1L, 1L);
-			orderService.addPerfumeToOrder(3L, 1L);
-			orderService.addPerfumeToOrder(5L, 1L);
-			System.out.printf("%-10s%-15s%-20s%n", "Order id", "Customer id", "Customer FirstName");
-			orders.forEach(orderResponseDTO -> {
-				System.out.printf("%-10s%-15s%-20s%n",
-						orderResponseDTO.getId(),
-						orderResponseDTO.getCustomer().getId(),
-						orderResponseDTO.getCustomer().getFirstName());
-			});
+			System.out.println("******************** ADD CUSTOMER TO ORDER ******************");
+			orderService.addCustomerToOrder(customer.getId(), order.getId());
 		};
 	}
 

@@ -9,5 +9,4 @@ import org.example.be.entities.Customer;
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class OrderRequestDTO {
     private Long id;
-    private Customer customer;
 }

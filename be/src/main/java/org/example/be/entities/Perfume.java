@@ -1,5 +1,9 @@
 package org.example.be.entities;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonProperty;
+>>>>>>> 2c89513 (konan-be-01 01/01/2023)
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +21,7 @@ public class Perfume {
     private String name;
     private String description;
     private double price;
-    @ManyToMany(mappedBy = "perfumes", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Order> orders = new ArrayList<>();
 }
