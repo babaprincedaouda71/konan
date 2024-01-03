@@ -15,7 +15,7 @@ export class CustomerService {
   }
 
   public saveCustomer(customer : Customer) : Observable<Customer>{
-    return this.http.post<Customer>("http://localhost:8025/customers", customer)
+    return this.http.post<Customer>("http://localhost:8082/customers", customer)
   }
   public deleteCustomer(customer : Customer) : Observable<any>{
     return this.http.delete(`http://localhost:8082/customers/${customer.id}`)
