@@ -1,13 +1,8 @@
 package org.example.be;
 
-import org.example.be.dto.*;
 import org.example.be.entities.Customer;
-<<<<<<< HEAD
-=======
 import org.example.be.entities.Order;
 import org.example.be.entities.Perfume;
->>>>>>> 2c89513 (konan-be-01 01/01/2023)
-import org.example.be.mappers.CustomerMapper;
 import org.example.be.service.CustomerService;
 import org.example.be.service.OrderService;
 import org.example.be.service.PerfumeService;
@@ -15,9 +10,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class BeApplication {
