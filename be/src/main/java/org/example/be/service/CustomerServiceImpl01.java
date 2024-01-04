@@ -2,19 +2,26 @@ package org.example.be.service;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.example.be.dto.CustomerResponseDTO;
 import org.example.be.entities.Customer;
+import org.example.be.mappers.CustomerMapper;
 import org.example.be.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 @Transactional
 public class CustomerServiceImpl01 implements CustomerService {
     private CustomerRepository customerRepository;
+    private CustomerMapper customerMapper;
 
     @Override
-    public List<Customer> getCustomers() {
-        return customerRepository.findAll();
+    public List<CustomerResponseDTO> getCustomers() {
+        List<Customer> customers = customerRepository.findAll();
+        List<CustomerResponseDTO> customerResponseDTOS = customers.stream().map(customer -> customerMapper.fromCustomer(customer)).collect(Collectors.toList());
+        return customerResponseDTOS;
     }
 
     @Override

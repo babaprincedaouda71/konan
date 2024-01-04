@@ -19,7 +19,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/customers")
-    public List<Customer> getCustomers(){
+    public List<CustomerResponseDTO> getCustomers(){
         return customerService.getCustomers();
     }
 
