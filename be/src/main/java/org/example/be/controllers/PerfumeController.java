@@ -27,7 +27,7 @@ public class PerfumeController {
         perfumeService.removePerfume(id);
     }
 
-    @GetMapping("/perfumes/{mc}")
+//    @GetMapping("/perfumes/{mc}")
     public List<Perfume> searchPerfume(@PathVariable String mc){
         return perfumeService.searchPerfume(mc);
     }

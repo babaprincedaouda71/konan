@@ -1,9 +1,6 @@
 package org.example.be.entities;
 
-<<<<<<< HEAD
-=======
 import com.fasterxml.jackson.annotation.JsonProperty;
->>>>>>> 2c89513 (konan-be-01 01/01/2023)
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

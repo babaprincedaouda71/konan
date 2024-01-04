@@ -23,7 +23,7 @@ export class ProductService {
   }
 
   public addToCart(product : Product) : Observable<any>{
-    return this.http.post("http://localhost:3000/cart", product)
+    return this.http.post("http://localhost:8082/cart", product)
   }
   public removeFromCart(product : Product) : Observable<any>{
     return this.http.delete(`http://localhost:3000/cart/${product.id}`)
