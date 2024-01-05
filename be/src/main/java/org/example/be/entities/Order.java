@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.be.enums.OrderStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,4 +24,7 @@ public class Order {
 
     @ManyToMany(mappedBy = "orders", fetch = FetchType.EAGER)
     private List<Perfume> perfumes = new ArrayList<>();
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 }

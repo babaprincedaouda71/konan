@@ -3,6 +3,7 @@ package org.example.be;
 import org.example.be.entities.Customer;
 import org.example.be.entities.Order;
 import org.example.be.entities.Perfume;
+import org.example.be.enums.OrderStatus;
 import org.example.be.service.CustomerService;
 import org.example.be.service.OrderService;
 import org.example.be.service.PerfumeService;
@@ -60,8 +61,11 @@ public class BeApplication {
 
 			System.out.println("******************** ORDERS ******************");
 			Order order = new Order();
+			order.setStatus(OrderStatus.IN_PROGRESS);
 			Order order1 = new Order();
+			order1.setStatus(OrderStatus.CONFIRMED);
 			Order order2 = new Order();
+			order2.setStatus(OrderStatus.ARCHIVED);
 			orderService.createOrder(order);
 			orderService.createOrder(order1);
 			orderService.createOrder(order2);
